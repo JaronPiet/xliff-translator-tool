@@ -277,8 +277,6 @@ namespace XliffTranslatorTool.Parser
         public XmlDocument CreateXliffDocument(XliffVersion xliffVersion, IEnumerable translationUnitsCollection)
         {
             XmlDocument xmlDocument = new XmlDocument();
-            XmlNode docNode = xmlDocument.CreateXmlDeclaration("1.0", "UTF-8", null);
-            xmlDocument.AppendChild(docNode);
 
             switch (xliffVersion)
             {
@@ -293,7 +291,7 @@ namespace XliffTranslatorTool.Parser
 
         private XmlDocument CreateXliffDocumentV12(XmlDocument xmlDocument, IEnumerable translationUnits)
         {
-            XmlNode rootNode = xmlDocument.CreateElement(Constants.XML_NODE_ROOT);
+            XmlNode rootNode = xmlDocument.CreateElement(Constants.XML_NODE_ROOT, Constants.XLIFF_NAMESPACE_V12);
 
             XmlAttribute versionAttribute = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_VERSION);
             versionAttribute.Value = Constants.XLIFF_VERSION_V12;
@@ -303,7 +301,7 @@ namespace XliffTranslatorTool.Parser
             namespaceAttribute.Value = Constants.XLIFF_NAMESPACE_V12;
             rootNode.Attributes.Append(namespaceAttribute);
 
-            XmlNode fileNode = xmlDocument.CreateElement(Constants.XML_NODE_FILE);
+            XmlNode fileNode = xmlDocument.CreateElement(Constants.XML_NODE_FILE, Constants.XLIFF_NAMESPACE_V12);
 
             if (!String.IsNullOrEmpty(SourceLanguage))
             {
@@ -312,36 +310,29 @@ namespace XliffTranslatorTool.Parser
                 fileNode.Attributes.Append(sourceLanguageAttribute);
             }
 
-            XmlNode bodyNode = xmlDocument.CreateElement(Constants.XML_NODE_BODY_V12);
+            XmlNode bodyNode = xmlDocument.CreateElement(Constants.XML_NODE_BODY_V12, Constants.XLIFF_NAMESPACE_V12);
 
             foreach (TranslationUnit translationUnit in translationUnits)
             {
                 if (String.IsNullOrEmpty(translationUnit.Identifier)) continue;
 
-                XmlNode translationUnitNode = xmlDocument.CreateElement(Constants.XML_NODE_TRANSLATION_UNIT_V12);
+                XmlNode translationUnitNode = xmlDocument.CreateElement(Constants.XML_NODE_TRANSLATION_UNIT_V12, Constants.XLIFF_NAMESPACE_V12);
 
                 XmlAttribute identifierAttribute = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_IDENTIFIER);
                 identifierAttribute.Value = translationUnit.Identifier;
                 translationUnitNode.Attributes.Append(identifierAttribute);
 
-                if (!String.IsNullOrEmpty(translationUnit.DataType))
-                {
-                    XmlAttribute dataTypeAttr = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_DATATYPE);
-                    dataTypeAttr.Value = translationUnit.DataType;
-                    translationUnitNode.Attributes.Append(dataTypeAttr);
-                }
-
-                XmlNode sourceNode = xmlDocument.CreateElement(Constants.XML_NODE_SOURCE);
+                XmlNode sourceNode = xmlDocument.CreateElement(Constants.XML_NODE_SOURCE, Constants.XLIFF_NAMESPACE_V12);
                 sourceNode.InnerText = translationUnit.Source;
                 translationUnitNode.AppendChild(sourceNode);
 
-                XmlNode targetNode = xmlDocument.CreateElement(Constants.XML_NODE_TARGET);
+                XmlNode targetNode = xmlDocument.CreateElement(Constants.XML_NODE_TARGET, Constants.XLIFF_NAMESPACE_V12);
                 targetNode.InnerText = translationUnit.Target;
                 translationUnitNode.AppendChild(targetNode);
 
                 if (!String.IsNullOrEmpty(translationUnit.Description))
                 {
-                    XmlNode descriptionNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTE);
+                    XmlNode descriptionNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTE, Constants.XLIFF_NAMESPACE_V12);
 
                     XmlAttribute fromAttribute = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_EXTRA_DATA_V12);
                     fromAttribute.Value = Constants.XML_ATTRIBUTE_VALUE_DESCRIPTION;
@@ -352,7 +343,7 @@ namespace XliffTranslatorTool.Parser
 
                 if (!String.IsNullOrEmpty(translationUnit.Meaning))
                 {
-                    XmlNode meaningNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTE);
+                    XmlNode meaningNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTE, Constants.XLIFF_NAMESPACE_V12);
 
                     XmlAttribute fromAttribute = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_EXTRA_DATA_V12);
                     fromAttribute.Value = Constants.XML_ATTRIBUTE_VALUE_MEANING;
@@ -406,7 +397,7 @@ namespace XliffTranslatorTool.Parser
 
         private XmlDocument CreateXliffDocumentV20(XmlDocument xmlDocument, IEnumerable translationUnits)
         {
-            XmlNode rootNode = xmlDocument.CreateElement(Constants.XML_NODE_ROOT);
+            XmlNode rootNode = xmlDocument.CreateElement(Constants.XML_NODE_ROOT, Constants.XLIFF_NAMESPACE_V20);
 
             XmlAttribute versionAttribute = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_VERSION);
             versionAttribute.Value = Constants.XLIFF_VERSION_V20;
@@ -423,25 +414,25 @@ namespace XliffTranslatorTool.Parser
                 rootNode.Attributes.Append(sourceLanguageAttribute);
             }
 
-            XmlNode fileNode = xmlDocument.CreateElement(Constants.XML_NODE_FILE);
+            XmlNode fileNode = xmlDocument.CreateElement(Constants.XML_NODE_FILE, Constants.XLIFF_NAMESPACE_V20);
 
             foreach (TranslationUnit translationUnit in translationUnits)
             {
                 if (String.IsNullOrEmpty(translationUnit.Identifier)) continue;
 
-                XmlNode translationUnitNode = xmlDocument.CreateElement(Constants.XML_NODE_TRANSLATION_UNIT_V20);
+                XmlNode translationUnitNode = xmlDocument.CreateElement(Constants.XML_NODE_TRANSLATION_UNIT_V20, Constants.XLIFF_NAMESPACE_V20);
 
                 XmlAttribute identifierAttribute = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_IDENTIFIER);
                 identifierAttribute.Value = translationUnit.Identifier;
                 translationUnitNode.Attributes.Append(identifierAttribute);
 
-                XmlNode segmentNode = xmlDocument.CreateElement(Constants.XML_NODE_SEGMENT_V20);
+                XmlNode segmentNode = xmlDocument.CreateElement(Constants.XML_NODE_SEGMENT_V20, Constants.XLIFF_NAMESPACE_V20);
 
-                XmlNode sourceNode = xmlDocument.CreateElement(Constants.XML_NODE_SOURCE);
+                XmlNode sourceNode = xmlDocument.CreateElement(Constants.XML_NODE_SOURCE, Constants.XLIFF_NAMESPACE_V20);
                 sourceNode.InnerText = translationUnit.Source;
                 segmentNode.AppendChild(sourceNode);
 
-                XmlNode targetNode = xmlDocument.CreateElement(Constants.XML_NODE_TARGET);
+                XmlNode targetNode = xmlDocument.CreateElement(Constants.XML_NODE_TARGET, Constants.XLIFF_NAMESPACE_V20);
                 targetNode.InnerText = translationUnit.Target;
                 segmentNode.AppendChild(targetNode);
                 translationUnitNode.AppendChild(segmentNode);
@@ -450,11 +441,11 @@ namespace XliffTranslatorTool.Parser
                 bool isMeaningNullOrEmpty = String.IsNullOrEmpty(translationUnit.Meaning);
                 if (!isDescriptionNullOrEmpty || !isMeaningNullOrEmpty)
                 {
-                    XmlNode notesNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTES_V20);
+                    XmlNode notesNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTES_V20, Constants.XLIFF_NAMESPACE_V20);
 
                     if (!isDescriptionNullOrEmpty)
                     {
-                        XmlNode descriptionNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTE);
+                        XmlNode descriptionNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTE, Constants.XLIFF_NAMESPACE_V20);
 
                         XmlAttribute categoryAttribute = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_EXTRA_DATA_V20);
                         categoryAttribute.Value = Constants.XML_ATTRIBUTE_VALUE_DESCRIPTION;
@@ -465,7 +456,7 @@ namespace XliffTranslatorTool.Parser
 
                     if (!isMeaningNullOrEmpty)
                     {
-                        XmlNode meaningNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTE);
+                        XmlNode meaningNode = xmlDocument.CreateElement(Constants.XML_NODE_NOTE, Constants.XLIFF_NAMESPACE_V20);
 
                         XmlAttribute categoryAttribute = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_EXTRA_DATA_V20);
                         categoryAttribute.Value = Constants.XML_ATTRIBUTE_VALUE_MEANING;
