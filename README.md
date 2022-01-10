@@ -4,6 +4,7 @@ This is a Fork.
 
 (Origin project: https://github.com/DavidOndrus/xliff-translator-tool/ not maintained anymore)
 
+
 Simple XLIFF (\*.xlf/\*.xliff 1.2 & 2.0) editor with merge/import feature
 
 I made this tool mainly for *Angular* translations because I couldn't find any simple, suitable and free tool. It's compatible with XLIFF 1.2 and XLIFF 2.0 and you can even combine them (open 1.2, import 2.0).
