@@ -1,6 +1,7 @@
 # XLIFF Translator Tool
 
-This is a Fork of https://github.com/DavidOndrus/xliff-translator-tool/
+This is a Fork.
+(Origin project: https://github.com/DavidOndrus/xliff-translator-tool/ not maintained anymore)
 
 Simple XLIFF (\*.xlf/\*.xliff 1.2 & 2.0) editor with merge/import feature
 
@@ -10,8 +11,9 @@ With this tool you can simply manage and update your translation files. Open old
 
 It's recommended to use "Save As..." option instead of "Save" because your original file won't be touched and you can revert your changes if something went wrong. Also, only with "Save As..." you can choose custom filename and choose from output XLIFF format version (1.2 or 2.0).
 
-Keeps: Unit context information such as purpose, datatype, sourcefile, linenumber
+Since version 1.6 the tool keeps the unit context information such as purpose, datatype, sourcefile, linenumber
 
+Download: [Releases](https://github.com/JaronPiet/xliff-translator-tool/releases)
 
 ## Images
 ![table image](Images/empty-targets.png)
