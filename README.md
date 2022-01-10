@@ -1,8 +1,6 @@
 # XLIFF Translator Tool
 
-This is a Fork.
-
-(Origin project: https://github.com/DavidOndrus/xliff-translator-tool/ not maintained anymore)
+This is a Fork. (Origin project: https://github.com/DavidOndrus/xliff-translator-tool/ not maintained anymore)
 
 
 Simple XLIFF (\*.xlf/\*.xliff 1.2 & 2.0) editor with merge/import feature
