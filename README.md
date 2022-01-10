@@ -14,6 +14,7 @@ It's recommended to use "Save As..." option instead of "Save" because your origi
 Since version 1.6 the tool keeps the unit context information such as purpose, datatype, sourcefile, linenumber
 
 Download: [Releases](https://github.com/JaronPiet/xliff-translator-tool/releases)
+
 (Older Versions: [Releases](https://github.com/DavidOndrus/xliff-translator-tool/releases))
 
 ## Images
