@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("XLIFF Translator Tool")]
 [assembly: AssemblyDescription("Simple XLIFF 1.2 and 2.0 translation tool")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("David Ondrus")]
+[assembly: AssemblyCompany("Jaron Piet")]
 [assembly: AssemblyProduct("XLIFF Translator Tool")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.0.0")]
-[assembly: AssemblyFileVersion("1.5.0.0")]
+[assembly: AssemblyVersion("1.6.0.0")]
+[assembly: AssemblyFileVersion("1.6.0.0")]
