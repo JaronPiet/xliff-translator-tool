@@ -11,7 +11,7 @@ With this tool you can simply manage and update your translation files. Open old
 
 It's recommended to use "Save As..." option instead of "Save" because your original file won't be touched and you can revert your changes if something went wrong. Also, only with "Save As..." you can choose custom filename and choose from output XLIFF format version (1.2 or 2.0).
 
-Since version 1.6 the tool keeps the unit context information such as purpose, datatype, sourcefile, linenumber
+Since version 1.6 the tool keeps the unit context information such as purpose, datatype, sourcefile, linenumber (for XLIFF 1.2)
 
 Download: [Releases](https://github.com/JaronPiet/xliff-translator-tool/releases)
 
