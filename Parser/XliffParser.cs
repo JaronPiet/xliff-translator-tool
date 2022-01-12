@@ -322,6 +322,13 @@ namespace XliffTranslatorTool.Parser
                 identifierAttribute.Value = translationUnit.Identifier;
                 translationUnitNode.Attributes.Append(identifierAttribute);
 
+                if (!String.IsNullOrEmpty(translationUnit.DataType))
+                {
+                    XmlAttribute dataTypeAttr = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_DATATYPE);
+                    dataTypeAttr.Value = translationUnit.DataType;
+                    translationUnitNode.Attributes.Append(dataTypeAttr);
+                }
+
                 XmlNode sourceNode = xmlDocument.CreateElement(Constants.XML_NODE_SOURCE, Constants.XLIFF_NAMESPACE_V12);
                 sourceNode.InnerText = translationUnit.Source;
                 translationUnitNode.AppendChild(sourceNode);
@@ -362,7 +369,7 @@ namespace XliffTranslatorTool.Parser
 
                     if (!String.IsNullOrEmpty(translationUnit.SourceFile))
                     {
-                        XmlNode sourcefileNode = xmlDocument.CreateElement(Constants.XML_NODE_CONTEXT_V12);
+                        XmlNode sourcefileNode = xmlDocument.CreateElement(Constants.XML_NODE_CONTEXT_V12, Constants.XLIFF_NAMESPACE_V12);
 
                         XmlAttribute sourcefileAttr = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_CONTEXT_TYPE);
                         sourcefileAttr.Value = Constants.XML_CONTEXT_TYPE_SOURCEFILE;
