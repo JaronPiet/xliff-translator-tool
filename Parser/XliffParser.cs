@@ -354,7 +354,7 @@ namespace XliffTranslatorTool.Parser
 
                 if (!String.IsNullOrEmpty(translationUnit.Purpose))
                 {
-                    XmlNode contextGroupNode = xmlDocument.CreateElement(Constants.XML_NODE_CONTEXT_GROUP_V12);
+                    XmlNode contextGroupNode = xmlDocument.CreateElement(Constants.XML_NODE_CONTEXT_GROUP_V12, Constants.XLIFF_NAMESPACE_V12);
 
                     XmlAttribute purposeAttr = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_PURPOSE);
                     purposeAttr.Value = translationUnit.Purpose;
@@ -373,7 +373,7 @@ namespace XliffTranslatorTool.Parser
 
                     if (translationUnit.LineNumbers != null && translationUnit.LineNumbers.Count > 0)
                     {
-                        XmlNode lineNumberNode = xmlDocument.CreateElement(Constants.XML_NODE_CONTEXT_V12);
+                        XmlNode lineNumberNode = xmlDocument.CreateElement(Constants.XML_NODE_CONTEXT_V12, Constants.XLIFF_NAMESPACE_V12);
 
                         XmlAttribute lineNumberAttr = xmlDocument.CreateAttribute(Constants.XML_ATTRIBUTE_CONTEXT_TYPE);
                         lineNumberAttr.Value = Constants.XML_CONTEXT_TYPE_LINENUMBER;
