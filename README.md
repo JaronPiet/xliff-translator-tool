@@ -17,16 +17,17 @@ Download: [Releases](https://github.com/JaronPiet/xliff-translator-tool/releases
 
 (Older Versions: [Releases](https://github.com/DavidOndrus/xliff-translator-tool/releases))
 
-## Images
+## Table view
 ![table image](Images/empty-targets.png)
 
-Table view. Empty target rows marked (gray)
+Empty target rows marked (gray)
 
 
+## Dublicates only view
 
 ![menu image](Images/dublicates-view.png)
 
-Dublicates only view. Dublicates which differs in target marked (orange).
+Dublicates which differs in target marked (orange).
 
 
 ## Output
